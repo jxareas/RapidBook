@@ -1,0 +1,9 @@
+--- 
+title: "Bookdown Template"
+author: "Jon Areas"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+---
+
+# Introduction
+
