@@ -1,1 +1,3 @@
 # Inferential Statistics
+
+Inferential statistics can be defined as a field of statistics that uses analytical tools for drawing conclusions about a population by examining random samples. The goal of inferential statistics is to make generalizations about a population.

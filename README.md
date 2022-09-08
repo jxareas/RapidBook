@@ -23,9 +23,9 @@ This is a template for creating an [HTML GitBook style](https://bookdown.org/yih
 
 ### Edit some key files
 
-- [ ] 1. In `index.Rmd`, change YOUR TITLE HERE to your title. 
+- [ ] 1. In `index.Rmd`, enter the TITLE of your book as the `title:` key. 
 
-- [ ] 2. In `index.Rmd`, change YOUR NAME HERE to your name.
+- [ ] 2. In `index.Rmd`, enter your NAME as the `author:` key.
 
 - [ ] 3. In `_bookdown.yml`, change YOUR GITHUB USERNAME to your GitHub username in the two places it appears.
 
@@ -49,5 +49,5 @@ This is a template for creating an [HTML GitBook style](https://bookdown.org/yih
 
 ### Additional features
 
-Please consult the official guide to **bookdown**: https://bookdown.org/yihui/bookdown
+Consult the official guide to **bookdown**: https://bookdown.org/yihui/bookdown
 

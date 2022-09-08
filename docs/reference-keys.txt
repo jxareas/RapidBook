@@ -1,0 +1,6 @@
+introduction
+descriptive-statistics
+inferential-statistics
+linear-regression
+logistic-regression
+poisson-regression

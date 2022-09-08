@@ -1,0 +1,3 @@
+# Poisson Regression
+
+Poisson regression is used to predict a dependent variable that consists of "count data" given one or more independent variables. The variable we want to predict is called the dependent variable (or sometimes the response, outcome, target or criterion variable).
