@@ -1,4 +1,8 @@
 bookdown::bs4_book:
+  split_by: chapter
+  repo: 
+    base: https://github.com/jxareas/bookdown-template
+    branch: main
   theme:
     primary: "#4E11A8"   
     base_font: 
@@ -11,10 +15,13 @@ bookdown::bs4_book:
         # arguments to sass::font_google() 
         family: DM Mono
         local: false
-  css: style.css
   config:
+    collapse: section
     toc:
       before: |
         <li><a href="./">Template</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        sharing:
+      facebook: true
+      twitter: true

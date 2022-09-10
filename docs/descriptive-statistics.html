@@ -6,11 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 2 Descriptive Statistics | Bookdown Template</title>
 <meta name="author" content="Jon Areas">
+<meta name="description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Descriptive Statistics | Bookdown Template">
 <meta property="og:type" content="book">
+<meta property="og:url" content="https://jxareas.github.io/bookdown-template/descriptive-statistics.html">
+<meta property="og:description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 2 Descriptive Statistics | Bookdown Template">
+<meta name="twitter:description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.2/font.css" rel="stylesheet">
@@ -21,10 +25,6 @@
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
-<link rel="stylesheet" href="style.css">
-<meta name="description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
-<meta property="og:description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
-<meta name="twitter:description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -56,7 +56,7 @@
 </ul>
 
         <div class="book-extra">
-          
+          <p><a id="book-repo" href="https://github.com/jxareas/bookdown-template">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -66,18 +66,198 @@
 </h1>
 <p>Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they form the basis of virtually every quantitative analysis of data.</p>
 <p>Descriptive statistics are typically distinguished from inferential statistics. With descriptive statistics you are simply describing what is or what the data shows. With inferential statistics, you are trying to reach conclusions that extend beyond the immediate data alone. For instance, we use inferential statistics to try to infer from the sample data what the population might think. Or, we use inferential statistics to make judgments of the probability that an observed difference between groups is a dependable one or one that might have happened by chance in this study. Thus, we use inferential statistics to make inferences from our data to more general conditions; we use descriptive statistics simply to describe what’s going on in our data.</p>
+<div id="summary-statistics-in-r" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Summary Statistics in R<a class="anchor" aria-label="anchor" href="#summary-statistics-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>We’ll use the dataset iris throughout this example. This dataset is imported by default in R, you only need to load it by running <code>iris</code> in the command line.
+Here, we load the <code>iris</code> dataset and rename it to <code>df</code></p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">iris</span> <span class="co"># This is a common name for a single data frame</span></span></code></pre></div>
+<div id="preview" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Preview<a class="anchor" aria-label="anchor" href="#preview"><i class="fas fa-link"></i></a>
+</h3>
+<p>Below, a preview of the dataset:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="co"># first 6 observations</span></span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div id="data-frame-structure" class="section level3" number="2.1.2">
+<h3>
+<span class="header-section-number">2.1.2</span> Data Frame Structure<a class="anchor" aria-label="anchor" href="#data-frame-structure"><i class="fas fa-link"></i></a>
+</h3>
+<p>Below, a preview of the dataset’s structure:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span> <span class="co"># structure of a dataset</span></span></code></pre></div>
+<pre><code>## 'data.frame':    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</div>
+<div id="summary" class="section level3" number="2.1.3">
+<h3>
+<span class="header-section-number">2.1.3</span> Summary<a class="anchor" aria-label="anchor" href="#summary"><i class="fas fa-link"></i></a>
+</h3>
+<p>To get the summary statistics for each column, you can use the <code>summary</code> function.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length  
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600  
+##  Median :5.800   Median :3.000   Median :4.350  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900  
+##   Petal.Width          Species  
+##  Min.   :0.100   setosa    :50  
+##  1st Qu.:0.300   versicolor:50  
+##  Median :1.300   virginica :50  
+##  Mean   :1.199                  
+##  3rd Qu.:1.800                  
+##  Max.   :2.500</code></pre>
+</div>
+</div>
+<div id="plots" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Plots<a class="anchor" aria-label="anchor" href="#plots"><i class="fas fa-link"></i></a>
+</h2>
+<p>For this section, we are going to use Hadley Wickham’s <code>ggplot2</code> package, which is a widely adopted library for plotting in R. <br> It uses an approach to plotting heavily inspired by Leland Wilkinson’s Grammar of Graphics.</p>
+<div id="bar-chart" class="section level3" number="2.2.1">
+<h3>
+<span class="header-section-number">2.2.1</span> Bar Chart<a class="anchor" aria-label="anchor" href="#bar-chart"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>,</span>
+<span>                     fill <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_bar</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-5-1.png" width="672"></div>
+</div>
+</div>
+<div id="histogram" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Histogram<a class="anchor" aria-label="anchor" href="#histogram"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_histogram</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Histogram of Sepal Length"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Sepal Length"</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
+## `binwidth`.</code></pre>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
+<div id="density-function" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> Density Function<a class="anchor" aria-label="anchor" href="#density-function"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_density</span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>               col <span class="op">=</span> <span class="st">"red"</span>,</span>
+<span>               alpha <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">labs</span><span class="op">(</span></span>
+<span>    title <span class="op">=</span> <span class="st">"Density of Sepal Length"</span>,</span>
+<span>    x <span class="op">=</span> <span class="st">"Sepal Length"</span>,</span>
+<span>    y <span class="op">=</span> <span class="st">"Probability"</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme_minimal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme</span><span class="op">(</span></span>
+<span>    plot.title <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span>                              face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-7-1.png" width="672"></div>
+</div>
+<div id="scatterplot" class="section level3" number="2.3.2">
+<h3>
+<span class="header-section-number">2.3.2</span> Scatterplot<a class="anchor" aria-label="anchor" href="#scatterplot"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>,</span>
+<span>                     y <span class="op">=</span> <span class="va">Petal.Width</span>,</span>
+<span>                     col <span class="op">=</span> <span class="va">Petal.Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">guides</span><span class="op">(</span>col <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-8-1.png" width="672"></div>
+</div>
+<div id="jitter-plot" class="section level3" number="2.3.3">
+<h3>
+<span class="header-section-number">2.3.3</span> Jitter Plot<a class="anchor" aria-label="anchor" href="#jitter-plot"><i class="fas fa-link"></i></a>
+</h3>
+<p>A Jitter plot is simply a scatterplot with a certain offset.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>,</span>
+<span>                     y <span class="op">=</span> <span class="va">Petal.Width</span>,</span>
+<span>                     col <span class="op">=</span> <span class="va">Petal.Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="co">#scatterplot with offset</span></span>
+<span>  <span class="fu">guides</span><span class="op">(</span>col <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-9-1.png" width="672"></div>
+</div>
+<div id="regression-line" class="section level3" number="2.3.4">
+<h3>
+<span class="header-section-number">2.3.4</span> Regression Line<a class="anchor" aria-label="anchor" href="#regression-line"><i class="fas fa-link"></i></a>
+</h3>
+<p>We can add a regression line to the last jitter plot by adding a call to <code>geom_smooth</code>, as in:</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">Sepal.Length</span>,</span>
+<span>                     y <span class="op">=</span> <span class="va">Petal.Width</span>,</span>
+<span>                     col <span class="op">=</span> <span class="va">Petal.Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_jitter</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>,</span>
+<span>              formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="co">## Simple Linear Regression, regressing y over x</span></span>
+<span>  <span class="fu">guides</span><span class="op">(</span>col <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
+<p>There’s also a couple of things more that you can do, but <strong>this is just a template.</strong></p>
 
+</div>
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="introduction-to-r.html"><span class="header-section-number">1</span> Introduction to R</a></div>
 <div class="next"><a href="inferential-statistics.html"><span class="header-section-number">3</span> Inferential Statistics</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#descriptive-statistics"><span class="header-section-number">2</span> Descriptive Statistics</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#descriptive-statistics"><span class="header-section-number">2</span> Descriptive Statistics</a></li>
+<li>
+<a class="nav-link" href="#summary-statistics-in-r"><span class="header-section-number">2.1</span> Summary Statistics in R</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#preview"><span class="header-section-number">2.1.1</span> Preview</a></li>
+<li><a class="nav-link" href="#data-frame-structure"><span class="header-section-number">2.1.2</span> Data Frame Structure</a></li>
+<li><a class="nav-link" href="#summary"><span class="header-section-number">2.1.3</span> Summary</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#plots"><span class="header-section-number">2.2</span> Plots</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#bar-chart"><span class="header-section-number">2.2.1</span> Bar Chart</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#histogram"><span class="header-section-number">2.3</span> Histogram</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#density-function"><span class="header-section-number">2.3.1</span> Density Function</a></li>
+<li><a class="nav-link" href="#scatterplot"><span class="header-section-number">2.3.2</span> Scatterplot</a></li>
+<li><a class="nav-link" href="#jitter-plot"><span class="header-section-number">2.3.3</span> Jitter Plot</a></li>
+<li><a class="nav-link" href="#regression-line"><span class="header-section-number">2.3.4</span> Regression Line</a></li>
+</ul>
+</li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          
+<li><a id="book-source" href="https://github.com/jxareas/bookdown-template/blob/main/02-descriptive-statistics.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jxareas/bookdown-template/edit/main/02-descriptive-statistics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

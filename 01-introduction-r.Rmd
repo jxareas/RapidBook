@@ -8,3 +8,40 @@ source code from [CRAN, the Comprehensive R Network](http://cran.r-project.org/)
 Nonetheless, most users probably will install R from a distributed binary. These are also available from CRAN. For example, the Microsoft Windows binary is distributed as a self-extracting `.exe` file. Simply download the file then install it as any
 other download.
 For Microsoft Windows users, the standard installation will create a desktop icon and start menu item for opening R.
+
+## R's command line
+
+There are several ways to interact with R, but for us the primary one will be through the command line, also known as the console. The command line in RStudio is in the console pane. <br>
+The command line is common to all of R’s interactive interfaces. The name comes from it being the place where one types in commands.
+In the figure we typed the command “2 + 2” then pressed the return key to send the command to R’s interpreter. It responded with the answer of 4, prefixed with a [1], which will make sense when we talk about data vectors in Chapter 2.
+In this text, rather than show screenshots of the RStudio console, we typeset the command line. The “2 + 2” command would look like:
+
+```{r sum_two_numbers}
+2 + 2
+```
+
+Whereas, the average of five numbers might look like:
+
+```{r average}
+(1 + 3 + 2 + 12 + 8)/5
+```
+
+We can tell R to add two sets of numbers together. It will then add the
+first number from x to the first number from y, and so on. However, x and
+y should be the same length. We can check their length using the `length` function, as follows:
+``` {r length}
+x <- c(1L, 6L, 2L) # Defining an atomic vector of integers
+length(x)
+```
+
+## R Base Graphics
+
+The `plot` function is the primary way to plot data in R. For instance,plot(x, y) produces a scatterplot of the numbers in x versus the numbers in y. <br>
+There are many additional options that can be passed in to the plot() function. For example, passing in the argument xlab will result in a label on the x-axis. To find out more information about the plot() function, type `?plot` in the command line.
+
+```{r scatter_plot}
+x <- rnorm(100) 
+y <- rnorm(100)
+
+plot(x,y)
+```
