@@ -3,7 +3,16 @@ title: "Bookdown Template"
 author: "Jon Areas"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
+github-repo: "jxareas/bookdown-template"
+url: 'https://jxareas.github.io/bookdown-template/'
+description: "A template to rapidly deploy Python/R based books using Bookdown."
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+```
 
 # Preliminary Information {-}
 

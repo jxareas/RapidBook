@@ -4,3 +4,115 @@ Descriptive statistics are used to describe the basic features of the data in a 
 
 Descriptive statistics are typically distinguished from inferential statistics. With descriptive statistics you are simply describing what is or what the data shows. With inferential statistics, you are trying to reach conclusions that extend beyond the immediate data alone. For instance, we use inferential statistics to try to infer from the sample data what the population might think. Or, we use inferential statistics to make judgments of the probability that an observed difference between groups is a dependable one or one that might have happened by chance in this study. Thus, we use inferential statistics to make inferences from our data to more general conditions; we use descriptive statistics simply to describe what’s going on in our data.
 
+## Summary Statistics in R
+
+We'll use the dataset iris throughout this example. This dataset is imported by default in R, you only need to load it by running `iris` in the command line.
+Here, we load the `iris` dataset and rename it to `df`
+
+``` {r echo = T, results = 'hide'}
+df <- iris # This is a common name for a single data frame
+```
+
+### Preview
+Below, a preview of the dataset:
+
+``` {r}
+head(df) # first 6 observations
+```
+
+### Data Frame Structure
+Below, a preview of the dataset's structure:
+``` {r}
+str(df) # structure of a dataset
+```
+
+### Summary
+To get the summary statistics for each column, you can use the `summary` function.
+``` {r}
+summary(df)
+```
+
+## Plots
+
+For this section, we are going to use Hadley Wickham's `ggplot2` package, which is a widely adopted library for plotting in R. <br> It uses an approach to plotting heavily inspired  by Leland Wilkinson's Grammar of Graphics.
+
+### Bar Chart
+
+```{r}
+
+ggplot(data = df,
+       mapping = aes(x = Species,
+                     fill = Species)) +
+  geom_bar()
+
+```
+
+## Histogram
+```{r}
+ggplot(data = df,
+       mapping = aes(x = Sepal.Length)) +
+  geom_histogram() +
+  labs(
+    title = "Histogram of Sepal Length",
+    x = "Sepal Length"
+  )
+```
+
+### Density Function
+```{r}
+ggplot(data = df,
+       mapping = aes(x = Sepal.Length)) +
+  geom_density(fill = "red",
+               col = "red",
+               alpha = .5) +
+  labs(
+    title = "Density of Sepal Length",
+    x = "Sepal Length",
+    y = "Probability"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = .5,
+                              face = "bold")
+  )
+```
+
+### Scatterplot
+
+```{r}
+ggplot(data = df,
+       mapping = aes(x = Sepal.Length,
+                     y = Petal.Width,
+                     col = Petal.Width)) +
+  geom_point() +
+  guides(col = "none")
+```
+
+### Jitter Plot
+
+A Jitter plot is simply a scatterplot with a certain offset.
+```{r}
+ggplot(data = df,
+       mapping = aes(x = Sepal.Length,
+                     y = Petal.Width,
+                     col = Petal.Width)) +
+  geom_jitter() + #scatterplot with offset
+  guides(col = "none")
+```
+
+### Regression Line
+
+We can add a regression line to the last jitter plot by adding a call to `geom_smooth`, as in:
+
+```{r}
+ggplot(data = df,
+       mapping = aes(x = Sepal.Length,
+                     y = Petal.Width,
+                     col = Petal.Width)) +
+  geom_jitter() +
+  geom_smooth(method = "lm",
+              formula = y ~ x) + ## Simple Linear Regression, regressing y over x
+  guides(col = "none")
+```
+
+There's also a couple of things more that you can do, but **this is just a template.**
