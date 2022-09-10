@@ -1,4 +1,16 @@
-bookdown::gitbook:
+bookdown::bs4_book:
+  theme:
+    primary: "#4E11A8"   
+    base_font: 
+      google: Lato
+    heading_font:
+      google:
+        family: Poppins
+    code_font:
+      google: 
+        # arguments to sass::font_google() 
+        family: DM Mono
+        local: false
   css: style.css
   config:
     toc:

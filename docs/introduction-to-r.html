@@ -4,13 +4,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Linear Regression | Bookdown Template</title>
+<title>Chapter 1 Introduction to R | Bookdown Template</title>
 <meta name="author" content="Jon Areas">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Linear Regression | Bookdown Template">
+<meta property="og:title" content="Chapter 1 Introduction to R | Bookdown Template">
 <meta property="og:type" content="book">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Linear Regression | Bookdown Template">
+<meta name="twitter:title" content="Chapter 1 Introduction to R | Bookdown Template">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.2/font.css" rel="stylesheet">
@@ -22,9 +22,9 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
 <link rel="stylesheet" href="style.css">
-<meta name="description" content="Linear regression attempts to model the relationship between two variables by fitting a linear equation to observed data. One variable is considered to be an explanatory variable, and the other is...">
-<meta property="og:description" content="Linear regression attempts to model the relationship between two variables by fitting a linear equation to observed data. One variable is considered to be an explanatory variable, and the other is...">
-<meta name="twitter:description" content="Linear regression attempts to model the relationship between two variables by fitting a linear equation to observed data. One variable is considered to be an explanatory variable, and the other is...">
+<meta name="description" content="This section covers the basics of getting started with R, beginning with some notes on installation and continuing with the basics of interacting with R through the command line. Before beginning...">
+<meta property="og:description" content="This section covers the basics of getting started with R, beginning with some notes on installation and continuing with the basics of interacting with R through the command line. Before beginning...">
+<meta name="twitter:description" content="This section covers the basics of getting started with R, beginning with some notes on installation and continuing with the basics of interacting with R through the command line. Before beginning...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -47,10 +47,10 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Preliminary Information</a></li>
-<li><a class="" href="introduction-to-r.html"><span class="header-section-number">1</span> Introduction to R</a></li>
+<li><a class="active" href="introduction-to-r.html"><span class="header-section-number">1</span> Introduction to R</a></li>
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive Statistics</a></li>
 <li><a class="" href="inferential-statistics.html"><span class="header-section-number">3</span> Inferential Statistics</a></li>
-<li><a class="active" href="linear-regression.html"><span class="header-section-number">4</span> Linear Regression</a></li>
+<li><a class="" href="linear-regression.html"><span class="header-section-number">4</span> Linear Regression</a></li>
 <li><a class="" href="logistic-regression.html"><span class="header-section-number">5</span> Logistic Regression</a></li>
 <li><a class="" href="poisson-regression.html"><span class="header-section-number">6</span> Poisson Regression</a></li>
 </ul>
@@ -60,20 +60,25 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-regression" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction-to-r" class="section level1" number="1">
 <h1>
-<span class="header-section-number">4</span> Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1</span> Introduction to R<a class="anchor" aria-label="anchor" href="#introduction-to-r"><i class="fas fa-link"></i></a>
 </h1>
-<p>Linear regression attempts to model the relationship between two variables by fitting a linear equation to observed data. One variable is considered to be an explanatory variable, and the other is considered to be a dependent variable. For example, a modeler might want to relate the weights of individuals to their heights using a linear regression model.
-Before attempting to fit a linear model to observed data, a modeler should first determine whether or not there is a relationship between the variables of interest. This does not necessarily imply that one variable causes the other (for example, higher SAT scores do not cause higher college grades), but that there is some significant association between the two variables. A scatterplot can be a helpful tool in determining the strength of the relationship between two variables. If there appears to be no association between the proposed explanatory and dependent variables (i.e., the scatterplot does not indicate any increasing or decreasing trends), then fitting a linear regression model to the data probably will not provide a useful model. A valuable numerical measure of association between two variables is the correlation coefficient, which is a value between -1 and 1 indicating the strength of the association of the observed data for the two variables.</p>
+<p>This section covers the basics of getting started with R, beginning with some
+notes on installation and continuing with the basics of interacting with R through the command line.</p>
+<p>Before beginning with R, it must be installed for usage. R is available as
+source code from <a href="http://cran.r-project.org/">CRAN, the Comprehensive R Network</a>. <br>
+Nonetheless, most users probably will install R from a distributed binary. These are also available from CRAN. For example, the Microsoft Windows binary is distributed as a self-extracting <code>.exe</code> file. Simply download the file then install it as any
+other download.
+For Microsoft Windows users, the standard installation will create a desktop icon and start menu item for opening R.</p>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="inferential-statistics.html"><span class="header-section-number">3</span> Inferential Statistics</a></div>
-<div class="next"><a href="logistic-regression.html"><span class="header-section-number">5</span> Logistic Regression</a></div>
+<div class="prev"><a href="index.html">Preliminary Information</a></div>
+<div class="next"><a href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive Statistics</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#linear-regression"><span class="header-section-number">4</span> Linear Regression</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#introduction-to-r"><span class="header-section-number">1</span> Introduction to R</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

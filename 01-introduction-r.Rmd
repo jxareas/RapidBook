@@ -1,0 +1,10 @@
+# Introduction to R
+
+This section covers the basics of getting started with R, beginning with some
+notes on installation and continuing with the basics of interacting with R through the command line.
+
+Before beginning with R, it must be installed for usage. R is available as
+source code from [CRAN, the Comprehensive R Network](http://cran.r-project.org/). <br>
+Nonetheless, most users probably will install R from a distributed binary. These are also available from CRAN. For example, the Microsoft Windows binary is distributed as a self-extracting `.exe` file. Simply download the file then install it as any
+other download.
+For Microsoft Windows users, the standard installation will create a desktop icon and start menu item for opening R.

@@ -1,4 +1,4 @@
-introduction
+introduction-to-r
 descriptive-statistics
 inferential-statistics
 linear-regression
