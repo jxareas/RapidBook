@@ -15,5 +15,10 @@ jitter-plot
 regression-line
 inferential-statistics
 linear-regression
+definition
+simple-linear-regression
+polynomial-regression
+multiple-linear-regression
+wilkinson-rogers-notation
 logistic-regression
 poisson-regression
