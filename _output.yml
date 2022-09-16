@@ -2,7 +2,7 @@ bookdown::bs4_book:
   split_by: chapter
   repo: 
     base: https://github.com/jxareas/bookdown-template
-    branch: main
+    branch: master
   theme:
     primary: "#4E11A8"   
     base_font: 

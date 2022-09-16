@@ -1,39 +1,61 @@
-# RapidBook Template
+<h1 align="center">
+<strong><em>RapidBook</em></strong>
+</h1>
 
-This is a template for creating an [HTML GitBook style](https://bookdown.org/yihui/bookdown/html.html#gitbook-style) **[bookdown](https://github.com/rstudio/bookdown)** book, [hosted on GitHub Pages](https://bookdown.org/yihui/bookdown/github.html). It is based on the one created with *File, New Project..., New Directory, Book Project using bookdown* in RStudio. It assumes you know how to use git/GitHub and R Markdown, and have some familiarity with the **bookdown** package. If you don't, the package author Yihue Xie's RStudio webinar *[Introduction to Bookdown (R Package)](https://www.youtube.com/watch?v=dVqVscgwSpw)* provides an excellent introduction. In addition, check out [*bookdown: Authoring Books and Technical Documents with R Markdown*](https://bookdown.org/yihui/bookdown), also by Yihui Xie, both for the content and the format--it is itself a **bookdown** book.
+This is a template, created with the purpose of quickly creating, customizing and deploying a Book-like website using the [`Bookdown` R package](https://github.com/rstudio/bookdown), to be hosted on Github Pages. 
 
 
-## Essentials
+## Instructions 📋
 
-*Follow these instructions and you will have a published bookdown book in less than five minutes. If you have any difficulties or have feedback of any kind, please file an issue.*
+Follow these instructions to either use, deploy or customize the template:
 
 ### Copy this template
 
-- [ ] 1. Click the green "Use this template" button above.  DO NOT FORK THE REPO.  Choose a descriptive name for your repo based on your content. (Unlike when you fork a repo, you get to choose the name. If you change your mind before you do any work, delete your new repo and start over.)
+- [ ] 1. Click the green "Use this template" button above.  **DO NOT FORK THE REPO** if you intend to use this as a template.  Choose a descriptive name for your repo depending on what you intend to do.
 
-### Set up GitHub Pages
+### Deploy with GitHub Pages 🚀
 
 - [ ] 1. On the home page of your repo, click Settings. Scroll down to the GitHub pages section and change **Source** to **master branch /docs folder**.  Above the **Source** line, a bar will appear with your book's URL. The bar will initially be blue and indicate that your book is *ready* to be published and will change to green once it is published. Copy the URL. (Note that sometimes there is a delay until your book actually appears at that URL. If it doesn't appear after a few minutes, make a change and commit it to trigger a GitHub Pages build.)
 
 - [ ] 2. Click the gear button near "About" on the home page of the repo and paste your book URL into the **Website** field that appears on the right.
 
-### Clone this repo
+### Clone your repo
 
 - [ ] 1. Clone your new repo with *File, New Project..., Version Control, Git* in RStudio.
 
-### Edit some key files
+### **Edit some key files**
 
-- [ ] 1. In `index.Rmd`, enter the TITLE of your book as the `title:` key. 
+- [ ] 1. In `index.Rmd`, enter the TITLE of your book in the `title:` key. 
 
-- [ ] 2. In `index.Rmd`, enter your NAME as the `author:` key.
+- [ ] 2. In `index.Rmd`, enter your NAME in the `author:` key.
 
-- [ ] 3. In `_bookdown.yml`, change YOUR GITHUB USERNAME to your GitHub username in the two places it appears.
+- [ ] 3. In `index.Rmd` enter your github repository in the `github-repo` key.
 
-- [ ] 4. In `_bookdown.yml`, change YOUR GITHUB REPO to your GitHub repo name in the two places it appears.
+- [ ] 3. In `index.Rmd` enter the current url of the website as the `url` key, once deployed to Github Pages.
 
-(Note that 3. and 4. provide links to the `.Rmd` files of your project for editing and viewing. If you move your `.Rmd` files you will need to update these file paths. Once your book is rendered, test that the edit (pen) and view (eye) buttons work.)
+- [ ] 5. In `index.Rmd` enter the description of your project.
+
+
+- [ ] 6. In `_bookdown.yml`, change YOUR GITHUB USERNAME to your GitHub username in the two places it appears.
+
+- [ ] 7. In `_bookdown.yml`, change YOUR GITHUB REPO to your GitHub repo name in the two places it appears.
+
+- [] 8. In `_output.yml`, specify the name of your default branch, which is usually either `main` or `master`. In this template it defaults to master.
+
+(Note that 6. and 7. provide links to the `.Rmd` files of your project for editing and viewing. If you move your `.Rmd` files you will need to update these file paths. Once your book is rendered, test that the edit (pen) and view (eye) buttons work.)
 
 - [ ] 5. In `_output.yml`, change YOUR SHORT TITLE to a shortened version of your title. (Leave the "after:" line indicating that the book was published with bookdown as is.)
+
+### Customize this template 🎇
+
+You can easily customize the theme and fonts of the book, in the `_output.yml` file:
+
+- Primary Color: set your color in hexadecimal format, in the `primary` key, which is by default set to Purple (#4E11A8).
+- Base Font: set the base font of the website, in the `base_font` key, which is by default set to Lato.
+- Heading Font: set the heading font of the website, in the `heading_font` key, which is by default set to Poppins.
+- Code Font: set the code font of the website, in the `code_font` key, which is by default set to DM Mono.
+
+
 
 ### Render the book
 
