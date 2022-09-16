@@ -1,24 +1,23 @@
---- 
-title: "Bookdown Template"
+---
+title: "RapidBook"
 author: "Jon Areas"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
-github-repo: "jxareas/bookdown-template"
-url: 'https://jxareas.github.io/bookdown-template/'
+github-repo: "jxareas/RapidBook"
+url: 'https://jxareas.github.io/RapidBook/'
 description: "A template to rapidly deploy Python/R based books using Bookdown."
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# Here you load all your project's packages
 library(ggplot2)
 library(dplyr)
 ```
 
-# Preliminary Information {-}
+# Preliminary Information {.unnumbered}
 
-This is an artificial book to demonstrate the look of the 
-[RapidBook Template](https://github.com/jxareas/RapidBook), which is a template to rapidly deploy either Python or R based books using Bookdown.
+This is an artificial book to demonstrate the look of the [RapidBook Template](https://github.com/jxareas/RapidBook), which is a template to rapidly deploy either Python or R based books using Bookdown.
 
 As this uses R Markdown, Python must be used through the `reticulate` interface.
-
-
