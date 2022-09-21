@@ -4,7 +4,7 @@
 
 Suppose that a random sample from size $n$ is drawn from a population, and measurements $(x_{i1}, x_{i2}...x_{ik}, y_i)$ where $i = 1, ... , n$, are obtained on the n individuals.
 
-The random variables$x_{i1}, x_{i2}...x_{ik}$ are commonly termed as *predictor variables* (or simply, predictors), but depending on the field of application, they may also be called *independent variables*, *regressors*, *features*, *covariates* or *explanatory variables*.
+The random variables $x_{i1}, x_{i2}...x_{ik}$ are commonly termed as *predictor variables* (or simply, predictors), but depending on the field of application, they may also be called *independent variables*, *regressors*, *features*, *covariates* or *explanatory variables*.
 
 The $y_i$ variable is called the *response variable* (or simply, response). Other terms include *target variable*, *variate*, *dependent variable* or *outcome variable*.
 
@@ -38,7 +38,7 @@ For this example, we'll use the `Boston` dataset, which contains 506 census trac
 
 ```{r}
 df <- read.csv("./datasets/Boston.csv")
-head(Boston)
+head(df)
 ```
 
 We will start by using the `lm` function to fit a simple linear regression model, with `medv` as the response and `lstat` as the predictor. The basic syntax is `lm(y ∼ x, data)`, where y is the response, x is the predictor, and data is the data set (usually a dataframe) in which these two variables are kept.
@@ -106,14 +106,14 @@ We will continue to use the `Boston` dataset in order to predict `medv` using se
 In order to fit a multiple linear regression model using least squares, we again use the `lm` function. The syntax `lm(y ∼ x1 + x2 + x3)` is used to fit a model with three predictors, $x_1$, $x_2$, and $x_3$. The `summary` function now outputs the regression coefficients for all the predictors.
 
 ```{r}
-linear_reg <- lm(medv ~ lstat + age, data = Boston)
+linear_reg <- lm(medv ~ lstat + age, data = df)
 summary(linear_reg)
 ```
 
 The Boston data set contains 12 variables, and so it would be cumbersome to have to type all of these in order to perform a regression using all of the predictors. Instead, we can use the following short-hand:
 
 ```{r}
-linear_reg <- lm(medv ~ ., data = Boston)
+linear_reg <- lm(medv ~ ., data = df)
 summary(linear_reg)
 ```
 

@@ -40,24 +40,28 @@ Follow these instructions to either use, deploy or customize the template:
 
 - [ ] 7. In `_bookdown.yml`, change YOUR GITHUB REPO to your GitHub repo name in the two places it appears.
 
-- [] 8. In `_output.yml`, specify the name of your default branch, which is usually either `main` or `master`. In this template it defaults to master.
+- [ ] 8. In `_output.yml`, specify the name of your default branch, which is usually either `main` or `master`. In this template it defaults to master.
+
+- [ ] 9. In `_output.yml`, change "Template" to a shortened version of your title. (Leave the "after:" line indicating that the book was published with bookdown as is.)
 
 (Note that 6. and 7. provide links to the `.Rmd` files of your project for editing and viewing. If you move your `.Rmd` files you will need to update these file paths. Once your book is rendered, test that the edit (pen) and view (eye) buttons work.)
-
-- [ ] 5. In `_output.yml`, change YOUR SHORT TITLE to a shortened version of your title. (Leave the "after:" line indicating that the book was published with bookdown as is.)
 
 ### Customize this template 🎇
 
 You can easily customize the theme and fonts of the book, in the `_output.yml` file:
 
-- Primary Color: set your color in hexadecimal format, in the `primary` key, which is by default set to Purple (#4E11A8).
-- Base Font: set the base font of the website, in the `base_font` key, which is by default set to Lato.
-- Heading Font: set the heading font of the website, in the `heading_font` key, which is by default set to Poppins.
-- Code Font: set the code font of the website, in the `code_font` key, which is by default set to DM Mono.
+- *Primary Color*: set your color in hexadecimal format, in the `primary` key, which is by default set to Purple (#4E11A8).
+- *Base Font*: set the base font of the website, in the `base_font` key, which is by default set to Lato.
+- *Heading Font*: set the heading font of the website, in the `heading_font` key, which is by default set to Poppins.
+- *Code Font*: set the code font of the website, in the `code_font` key, which is by default set to DM Mono.
 
 
 
 ### Render the book
+
+In order to render the book, you can run the `main.R` file, which will build and show the updated book. This will require the `Bookdown` package as well as `reticulate`, which you can remove if Python is not necessary.
+
+ If you want to do it manually, you can follow the steps listed below:
 
 - [ ] 1. Install **bookdown** with `install.packages("bookdown")`. If you already have it, update to the [latest version](https://CRAN.R-project.org/package=bookdown).
 
@@ -65,7 +69,7 @@ You can easily customize the theme and fonts of the book, in the `_output.yml` f
 
 - [ ] 3. Use `browseURL("docs/index.html")` to view your book locally (or just open `index.html` in a browser).
 
-- [ ] 4. If it looks good, commit and push all changed files to GitHub. 
+- [ ] 4. Commit and push to Github. 
 
 (You will need to repeat steps 2 and 4 every time you wish to update the book online.)
 
