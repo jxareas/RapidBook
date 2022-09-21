@@ -1,7 +1,6 @@
 # Import Packages ---------------------------------------------------------
 
 library(bookdown)
-library(quarto)
 library(reticulate)
 
 # Render Book -------------------------------------------------------------
