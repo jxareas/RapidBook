@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 4 Linear Regression | RapidBook</title>
+<title>Chapter 3 Linear Regression | RapidBook</title>
 <meta name="author" content="Jon Areas">
-<meta name="description" content="4.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
+<meta name="description" content="3.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
 <meta name="generator" content="bookdown 0.28 with bs4_book()">
-<meta property="og:title" content="Chapter 4 Linear Regression | RapidBook">
+<meta property="og:title" content="Chapter 3 Linear Regression | RapidBook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://jxareas.github.io/RapidBook/linear-regression.html">
-<meta property="og:description" content="4.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
+<meta property="og:description" content="3.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 4 Linear Regression | RapidBook">
-<meta name="twitter:description" content="4.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
+<meta name="twitter:title" content="Chapter 3 Linear Regression | RapidBook">
+<meta name="twitter:description" content="3.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.2/font.css" rel="stylesheet">
@@ -49,10 +49,7 @@
 <li><a class="" href="index.html">Preliminary Information</a></li>
 <li><a class="" href="introduction-to-r.html"><span class="header-section-number">1</span> Introduction to R</a></li>
 <li><a class="" href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive Statistics</a></li>
-<li><a class="" href="inferential-statistics.html"><span class="header-section-number">3</span> Inferential Statistics</a></li>
-<li><a class="active" href="linear-regression.html"><span class="header-section-number">4</span> Linear Regression</a></li>
-<li><a class="" href="logistic-regression.html"><span class="header-section-number">5</span> Logistic Regression</a></li>
-<li><a class="" href="poisson-regression.html"><span class="header-section-number">6</span> Poisson Regression</a></li>
+<li><a class="active" href="linear-regression.html"><span class="header-section-number">3</span> Linear Regression</a></li>
 </ul>
 
         <div class="book-extra">
@@ -60,16 +57,16 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-regression" class="section level1" number="4">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="linear-regression" class="section level1" number="3">
 <h1>
-<span class="header-section-number">4</span> Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Linear Regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
 </h1>
-<div id="definition" class="section level2" number="4.1">
+<div id="definition" class="section level2" number="3.1">
 <h2>
-<span class="header-section-number">4.1</span> Definition<a class="anchor" aria-label="anchor" href="#definition"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.1</span> Definition<a class="anchor" aria-label="anchor" href="#definition"><i class="fas fa-link"></i></a>
 </h2>
 <p>Suppose that a random sample from size <span class="math inline">\(n\)</span> is drawn from a population, and measurements <span class="math inline">\((x_{i1}, x_{i2}...x_{ik}, y_i)\)</span> where <span class="math inline">\(i = 1, ... , n\)</span>, are obtained on the n individuals.</p>
-<p>The random variables<span class="math inline">\(x_{i1}, x_{i2}...x_{ik}\)</span> are commonly termed as <em>predictor variables</em> (or simply, predictors), but depending on the field of application, they may also be called <em>independent variables</em>, <em>regressors</em>, <em>features</em>, <em>covariates</em> or <em>explanatory variables</em>.</p>
+<p>The random variables <span class="math inline">\(x_{i1}, x_{i2}...x_{ik}\)</span> are commonly termed as <em>predictor variables</em> (or simply, predictors), but depending on the field of application, they may also be called <em>independent variables</em>, <em>regressors</em>, <em>features</em>, <em>covariates</em> or <em>explanatory variables</em>.</p>
 <p>The <span class="math inline">\(y_i\)</span> variable is called the <em>response variable</em> (or simply, response). Other terms include <em>target variable</em>, <em>variate</em>, <em>dependent variable</em> or <em>outcome variable</em>.</p>
 <p>The Linear Regression Model represents a relation between the response variable <span class="math inline">\(y\)</span> and the predictor variables <span class="math inline">\(x_{1}, x_{2}...x_{k}\)</span> (with the lowercase notation for simplicity) of the form:</p>
 <p><span class="math display">\[
@@ -87,9 +84,9 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 \end{align}
 \]</span></p>
 </div>
-<div id="simple-linear-regression" class="section level2" number="4.2">
+<div id="simple-linear-regression" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">4.2</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Simple Linear Regression<a class="anchor" aria-label="anchor" href="#simple-linear-regression"><i class="fas fa-link"></i></a>
 </h2>
 <p>Simple linear regression is a simplification of the Linear Regression Model that estimates the relationship between one independent variable and one dependent variable using a straight line. Both variables should be quantitative.</p>
 <p>For this example, we’ll use the <code>Boston</code> dataset, which contains 506 census tracts in Boston. We will seek to predict <code>medv</code>, the median house value, using the <code>lstat</code> predictor, which represents the percent of households with low socioeconomic status.</p>
@@ -155,9 +152,9 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 <span>  <span class="fu">guides</span><span class="op">(</span>col<span class="op">=</span><span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-15-1.png" width="672"></div>
 </div>
-<div id="polynomial-regression" class="section level2" number="4.3">
+<div id="polynomial-regression" class="section level2" number="3.3">
 <h2>
-<span class="header-section-number">4.3</span> Polynomial Regression<a class="anchor" aria-label="anchor" href="#polynomial-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.3</span> Polynomial Regression<a class="anchor" aria-label="anchor" href="#polynomial-regression"><i class="fas fa-link"></i></a>
 </h2>
 <p>It is also possible to fit a polynomial regression model by using the <code>poly</code> function, whose first argument is the variable and the second is the degree of the polynomial.</p>
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
@@ -203,9 +200,9 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 <span>  <span class="fu">guides</span><span class="op">(</span>col<span class="op">=</span><span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-18-1.png" width="672"></div>
 </div>
-<div id="multiple-linear-regression" class="section level2" number="4.4">
+<div id="multiple-linear-regression" class="section level2" number="3.4">
 <h2>
-<span class="header-section-number">4.4</span> Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#multiple-linear-regression"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4</span> Multiple Linear Regression<a class="anchor" aria-label="anchor" href="#multiple-linear-regression"><i class="fas fa-link"></i></a>
 </h2>
 <p>We will continue to use the <code>Boston</code> dataset in order to predict <code>medv</code> using several predictors such as <code>rm</code> (average number of rooms per house), <code>age</code> (average age of houses), and <code>lstat</code> (percent of households with low socioeconomic status).</p>
 <p>In order to fit a multiple linear regression model using least squares, we again use the <code>lm</code> function. The syntax <code>lm(y ∼ x1 + x2 + x3)</code> is used to fit a model with three predictors, <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, and <span class="math inline">\(x_3\)</span>. The <code>summary</code> function now outputs the regression coefficients for all the predictors.</p>
@@ -265,9 +262,9 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 ## Multiple R-squared:  0.7343, Adjusted R-squared:  0.7278 
 ## F-statistic: 113.5 on 12 and 493 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<div id="wilkinson-rogers-notation" class="section level2" number="4.5">
+<div id="wilkinson-rogers-notation" class="section level2" number="3.5">
 <h2>
-<span class="header-section-number">4.5</span> Wilkinson-Rogers Notation<a class="anchor" aria-label="anchor" href="#wilkinson-rogers-notation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.5</span> Wilkinson-Rogers Notation<a class="anchor" aria-label="anchor" href="#wilkinson-rogers-notation"><i class="fas fa-link"></i></a>
 </h2>
 <p>The feature of detailing all variables by using a <code>.</code> placeholder is possible because R uses Wilkinson and Rogers’ (1973) notation, which allows us to write the algebraic formula that defines a statistical model.
 This notation is commonly used in R, Python &amp; MATLAB statistical libraries.
@@ -279,23 +276,23 @@ Below is a table in which the symbols that helps write formulas to represent sta
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="inferential-statistics.html"><span class="header-section-number">3</span> Inferential Statistics</a></div>
-<div class="next"><a href="logistic-regression.html"><span class="header-section-number">5</span> Logistic Regression</a></div>
+<div class="prev"><a href="descriptive-statistics.html"><span class="header-section-number">2</span> Descriptive Statistics</a></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#linear-regression"><span class="header-section-number">4</span> Linear Regression</a></li>
-<li><a class="nav-link" href="#definition"><span class="header-section-number">4.1</span> Definition</a></li>
-<li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">4.2</span> Simple Linear Regression</a></li>
-<li><a class="nav-link" href="#polynomial-regression"><span class="header-section-number">4.3</span> Polynomial Regression</a></li>
-<li><a class="nav-link" href="#multiple-linear-regression"><span class="header-section-number">4.4</span> Multiple Linear Regression</a></li>
-<li><a class="nav-link" href="#wilkinson-rogers-notation"><span class="header-section-number">4.5</span> Wilkinson-Rogers Notation</a></li>
+<li><a class="nav-link" href="#linear-regression"><span class="header-section-number">3</span> Linear Regression</a></li>
+<li><a class="nav-link" href="#definition"><span class="header-section-number">3.1</span> Definition</a></li>
+<li><a class="nav-link" href="#simple-linear-regression"><span class="header-section-number">3.2</span> Simple Linear Regression</a></li>
+<li><a class="nav-link" href="#polynomial-regression"><span class="header-section-number">3.3</span> Polynomial Regression</a></li>
+<li><a class="nav-link" href="#multiple-linear-regression"><span class="header-section-number">3.4</span> Multiple Linear Regression</a></li>
+<li><a class="nav-link" href="#wilkinson-rogers-notation"><span class="header-section-number">3.5</span> Wilkinson-Rogers Notation</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/jxareas/bookdown-template/blob/master/04-linear-regression.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/jxareas/bookdown-template/edit/master/04-linear-regression.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/jxareas/bookdown-template/blob/master/03-linear-regression.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jxareas/bookdown-template/edit/master/03-linear-regression.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
