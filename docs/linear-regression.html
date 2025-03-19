@@ -6,21 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 3 Linear Regression | RapidBook</title>
 <meta name="author" content="Jon Areas">
-<meta name="description" content="3.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="description" content="3.1 Definition Suppose that a random sample of size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}, \dots, x_{ik}, y_i)\), where \(i = 1, \dots, n\), are obtained on the...">
+<meta name="generator" content="bookdown 0.42 with bs4_book()">
 <meta property="og:title" content="Chapter 3 Linear Regression | RapidBook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://jxareas.github.io/RapidBook/linear-regression.html">
-<meta property="og:description" content="3.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
+<meta property="og:description" content="3.1 Definition Suppose that a random sample of size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}, \dots, x_{ik}, y_i)\), where \(i = 1, \dots, n\), are obtained on the...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 3 Linear Regression | RapidBook">
-<meta name="twitter:description" content="3.1 Definition Suppose that a random sample from size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}...x_{ik}, y_i)\) where \(i = 1, ... , n\), are obtained on the n...">
+<meta name="twitter:description" content="3.1 Definition Suppose that a random sample of size \(n\) is drawn from a population, and measurements \((x_{i1}, x_{i2}, \dots, x_{ik}, y_i)\), where \(i = 1, \dots, n\), are obtained on the...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.2/font.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM%20Mono&amp;display=swap" rel="stylesheet">
-<link href="libs/Poppins-0.4.2/font.css" rel="stylesheet">
-<script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<link href="libs/Poppins-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -65,14 +65,12 @@
 <h2>
 <span class="header-section-number">3.1</span> Definition<a class="anchor" aria-label="anchor" href="#definition"><i class="fas fa-link"></i></a>
 </h2>
-<p>Suppose that a random sample from size <span class="math inline">\(n\)</span> is drawn from a population, and measurements <span class="math inline">\((x_{i1}, x_{i2}...x_{ik}, y_i)\)</span> where <span class="math inline">\(i = 1, ... , n\)</span>, are obtained on the n individuals.</p>
-<p>The random variables <span class="math inline">\(x_{i1}, x_{i2}...x_{ik}\)</span> are commonly termed as <em>predictor variables</em> (or simply, predictors), but depending on the field of application, they may also be called <em>independent variables</em>, <em>regressors</em>, <em>features</em>, <em>covariates</em> or <em>explanatory variables</em>.</p>
-<p>The <span class="math inline">\(y_i\)</span> variable is called the <em>response variable</em> (or simply, response). Other terms include <em>target variable</em>, <em>variate</em>, <em>dependent variable</em> or <em>outcome variable</em>.</p>
-<p>The Linear Regression Model represents a relation between the response variable <span class="math inline">\(y\)</span> and the predictor variables <span class="math inline">\(x_{1}, x_{2}...x_{k}\)</span> (with the lowercase notation for simplicity) of the form:</p>
+<p>Suppose that a random sample of size <span class="math inline">\(n\)</span> is drawn from a population, and measurements <span class="math inline">\((x_{i1}, x_{i2}, \dots, x_{ik}, y_i)\)</span>, where <span class="math inline">\(i = 1, \dots, n\)</span>, are obtained on the <span class="math inline">\(n\)</span> individuals.</p>
+<p>The random variables <span class="math inline">\(x_{i1}, x_{i2}, \dots, x_{ik}\)</span> are commonly termed <em>predictor variables</em> (or simply, predictors). Depending on the field of application, they may also be called <em>independent variables</em>, <em>regressors</em>, <em>features</em>, <em>covariates</em>, or <em>explanatory variables</em>.</p>
+<p>The <span class="math inline">\(y_i\)</span> variable is called the <em>response variable</em> (or simply, response). Other terms include <em>target variable</em>, <em>variate</em>, <em>dependent variable</em>, or <em>outcome variable</em>.</p>
+<p>The Linear Regression Model represents a relation between the response variable <span class="math inline">\(y\)</span> and the predictor variables <span class="math inline">\(x_1, x_2, \dots, x_k\)</span> (with lowercase notation for simplicity), of the form:</p>
 <p><span class="math display">\[
-\begin{align}
-y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
-\end{align}
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k + \epsilon
 \]</span></p>
 <p>Where <span class="math inline">\(\beta_0, ..., \beta_k\)</span> are constants <em>regression coefficients</em>, and <span class="math inline">\(\epsilon\)</span> is a random error term that follows a normal distribution with mean zero (<span class="math inline">\(\mu = 0\)</span>) and constant variance <span class="math inline">\(\sigma^2\)</span>. That is, <span class="math inline">\(\epsilon \sim Norm(\mu = 0, \sigma^2)\)</span>. Also, the random errors are assumed to be independent for different individuals of the sample.</p>
 <p>The parameters of the model <span class="math inline">\(\beta_0, ..., \beta_k\)</span>, and the variance <span class="math inline">\(\sigma^2\)</span> are unknown and have to be estimated from the sample data.</p>
@@ -80,7 +78,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 <p>Note that, in the general linear regression model, the response variable y has a normal distribution with the mean:</p>
 <p><span class="math display">\[
 \begin{align}
-\mathbb{E}(y) = \beta_0 + \beta_1 \cdot x_1 + ... + \beta_k \cdot x_k
+\mathbb{E}(y|x) = \beta_0 + \beta_1 \cdot x_1 + ... + \beta_k \cdot x_k
 \end{align}
 \]</span></p>
 </div>
@@ -90,28 +88,21 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 </h2>
 <p>Simple linear regression is a simplification of the Linear Regression Model that estimates the relationship between one independent variable and one dependent variable using a straight line. Both variables should be quantitative.</p>
 <p>For this example, we’ll use the <code>Boston</code> dataset, which contains 506 census tracts in Boston. We will seek to predict <code>medv</code>, the median house value, using the <code>lstat</code> predictor, which represents the percent of households with low socioeconomic status.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"./datasets/Boston.csv"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##      crim zn indus chas   nox    rm  age    dis rad tax
-## 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296
-## 2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242
-## 3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242
-## 4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222
-## 5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222
-## 6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222
-##   ptratio lstat medv
-## 1    15.3  4.98 24.0
-## 2    17.8  9.14 21.6
-## 3    17.8  4.03 34.7
-## 4    18.7  2.94 33.4
-## 5    18.7  5.33 36.2
-## 6    18.7  5.21 28.7</code></pre>
+<pre><code>##      crim zn indus chas   nox    rm  age    dis rad tax ptratio lstat medv
+## 1 0.00632 18  2.31    0 0.538 6.575 65.2 4.0900   1 296    15.3  4.98 24.0
+## 2 0.02731  0  7.07    0 0.469 6.421 78.9 4.9671   2 242    17.8  9.14 21.6
+## 3 0.02729  0  7.07    0 0.469 7.185 61.1 4.9671   2 242    17.8  4.03 34.7
+## 4 0.03237  0  2.18    0 0.458 6.998 45.8 6.0622   3 222    18.7  2.94 33.4
+## 5 0.06905  0  2.18    0 0.458 7.147 54.2 6.0622   3 222    18.7  5.33 36.2
+## 6 0.02985  0  2.18    0 0.458 6.430 58.7 6.0622   3 222    18.7  5.21 28.7</code></pre>
 <p>We will start by using the <code>lm</code> function to fit a simple linear regression model, with <code>medv</code> as the response and <code>lstat</code> as the predictor. The basic syntax is <code>lm(y ∼ x, data)</code>, where y is the response, x is the predictor, and data is the data set (usually a dataframe) in which these two variables are kept.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">linear_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula <span class="op">=</span> <span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span></code></pre></div>
 <p>If we type the name of the variable, which in this case is <code>linear_reg</code> some basic information about the model is output.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">linear_reg</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -121,7 +112,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 ## (Intercept)        lstat  
 ##       34.55        -0.95</code></pre>
 <p>For more detailed information, we use <code>summary(linear_reg)</code>. This gives us p-values and standard errors for the coefficients, as well as the <span class="math inline">\(R^2\)</span> statistic and <span class="math inline">\(F\)</span>-statistic for the model.</p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linear_reg</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -142,7 +133,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 ## Multiple R-squared:  0.5441, Adjusted R-squared:  0.5432 
 ## F-statistic: 601.6 on 1 and 504 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>We can also plot the linear regression line using <code>ggplot2</code>:</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">lstat</span>,</span>
 <span>                     y <span class="op">=</span> <span class="va">medv</span>, </span>
@@ -157,7 +148,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 <span class="header-section-number">3.3</span> Polynomial Regression<a class="anchor" aria-label="anchor" href="#polynomial-regression"><i class="fas fa-link"></i></a>
 </h2>
 <p>It is also possible to fit a polynomial regression model by using the <code>poly</code> function, whose first argument is the variable and the second is the degree of the polynomial.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">polynomial_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span>formula<span class="op">=</span><span class="va">medv</span><span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/stats/poly.html">poly</a></span><span class="op">(</span><span class="va">lstat</span>, <span class="fl">2</span><span class="op">)</span>, data<span class="op">=</span><span class="va">df</span><span class="op">)</span></span>
 <span><span class="va">polynomial_reg</span></span></code></pre></div>
 <pre><code>## 
@@ -168,7 +159,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 ##     (Intercept)  poly(lstat, 2)1  poly(lstat, 2)2  
 ##           22.53          -152.46            64.23</code></pre>
 <p>It is also possible to print the summary of the model, by using the aforementioned <code>summary</code> function.</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">polynomial_reg</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
 ## Call:
@@ -190,7 +181,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 ## Multiple R-squared:  0.6407, Adjusted R-squared:  0.6393 
 ## F-statistic: 448.5 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Similarly, we can plot this polynomial regression model using <code>ggplot2</code>:</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">ggplot</span><span class="op">(</span>data <span class="op">=</span> <span class="va">df</span>,</span>
 <span>       mapping <span class="op">=</span> <span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">lstat</span>,</span>
 <span>                     y <span class="op">=</span> <span class="va">medv</span>, </span>
@@ -206,7 +197,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 </h2>
 <p>We will continue to use the <code>Boston</code> dataset in order to predict <code>medv</code> using several predictors such as <code>rm</code> (average number of rooms per house), <code>age</code> (average age of houses), and <code>lstat</code> (percent of households with low socioeconomic status).</p>
 <p>In order to fit a multiple linear regression model using least squares, we again use the <code>lm</code> function. The syntax <code>lm(y ∼ x1 + x2 + x3)</code> is used to fit a model with three predictors, <span class="math inline">\(x_1\)</span>, <span class="math inline">\(x_2\)</span>, and <span class="math inline">\(x_3\)</span>. The <code>summary</code> function now outputs the regression coefficients for all the predictors.</p>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">linear_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">lstat</span> <span class="op">+</span> <span class="va">age</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linear_reg</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -229,7 +220,7 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 ## Multiple R-squared:  0.5513, Adjusted R-squared:  0.5495 
 ## F-statistic:   309 on 2 and 503 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>The Boston data set contains 12 variables, and so it would be cumbersome to have to type all of these in order to perform a regression using all of the predictors. Instead, we can use the following short-hand:</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">linear_reg</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">medv</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">df</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">linear_reg</span><span class="op">)</span></span></code></pre></div>
 <pre><code>## 
@@ -269,8 +260,8 @@ y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
 <p>The feature of detailing all variables by using a <code>.</code> placeholder is possible because R uses Wilkinson and Rogers’ (1973) notation, which allows us to write the algebraic formula that defines a statistical model.
 This notation is commonly used in R, Python &amp; MATLAB statistical libraries.
 Below is a table in which the symbols that helps write formulas to represent statistical models appear.</p>
-<div class="figure">
-<img src="assets/wilkinson-rogers.png" style="width:85.0%" alt=""><p class="caption">Wilkinson-Rogers Notation</p>
+<div class="float">
+<img src="assets/wilkinson-rogers.png" style="width:85.0%" alt="Wilkinson-Rogers Notation"><div class="figcaption">Wilkinson-Rogers Notation</div>
 </div>
 
 </div>
@@ -304,7 +295,7 @@ Below is a table in which the symbols that helps write formulas to represent sta
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>RapidBook</strong>" was written by Jon Areas. It was last built on 2022-09-21.</p>
+    <p>"<strong>RapidBook</strong>" was written by Jon Areas. It was last built on 2025-03-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

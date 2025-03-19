@@ -7,7 +7,7 @@
 <title>Chapter 2 Descriptive Statistics | RapidBook</title>
 <meta name="author" content="Jon Areas">
 <meta name="description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
-<meta name="generator" content="bookdown 0.28 with bs4_book()">
+<meta name="generator" content="bookdown 0.42 with bs4_book()">
 <meta property="og:title" content="Chapter 2 Descriptive Statistics | RapidBook">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://jxareas.github.io/RapidBook/descriptive-statistics.html">
@@ -17,10 +17,10 @@
 <meta name="twitter:description" content="Descriptive statistics are used to describe the basic features of the data in a study. They provide simple summaries about the sample and the measures. Together with simple graphics analysis, they...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.2/font.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Lato-0.4.9/font.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=DM%20Mono&amp;display=swap" rel="stylesheet">
-<link href="libs/Poppins-0.4.2/font.css" rel="stylesheet">
-<script src="libs/bs3compat-0.4.0/transition.js"></script><script src="libs/bs3compat-0.4.0/tabs.js"></script><script src="libs/bs3compat-0.4.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<link href="libs/Poppins-0.4.9/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -107,20 +107,13 @@ Here, we load the <code>iris</code> dataset and rename it to <code>df</code></p>
 <p>To get the summary statistics for each column, you can use the <code>summary</code> function.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code></pre></div>
-<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length  
-##  Min.   :4.300   Min.   :2.000   Min.   :1.000  
-##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600  
-##  Median :5.800   Median :3.000   Median :4.350  
-##  Mean   :5.843   Mean   :3.057   Mean   :3.758  
-##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100  
-##  Max.   :7.900   Max.   :4.400   Max.   :6.900  
-##   Petal.Width          Species  
-##  Min.   :0.100   setosa    :50  
-##  1st Qu.:0.300   versicolor:50  
-##  Median :1.300   virginica :50  
-##  Mean   :1.199                  
-##  3rd Qu.:1.800                  
-##  Max.   :2.500</code></pre>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100   setosa    :50  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300   versicolor:50  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300   virginica :50  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199                  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800                  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500</code></pre>
 </div>
 </div>
 <div id="plots" class="section level2" number="2.2">
@@ -152,8 +145,7 @@ Here, we load the <code>iris</code> dataset and rename it to <code>df</code></p>
 <span>    title <span class="op">=</span> <span class="st">"Histogram of Sepal Length"</span>,</span>
 <span>    x <span class="op">=</span> <span class="st">"Sepal Length"</span></span>
 <span>  <span class="op">)</span></span></code></pre></div>
-<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with
-## `binwidth`.</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-6-1.png" width="672"></div>
 <div id="density-function" class="section level3" number="2.3.1">
 <h3>
@@ -218,6 +210,9 @@ Here, we load the <code>iris</code> dataset and rename it to <code>df</code></p>
 <span>  <span class="fu">geom_smooth</span><span class="op">(</span>method <span class="op">=</span> <span class="st">"lm"</span>,</span>
 <span>              formula <span class="op">=</span> <span class="va">y</span> <span class="op">~</span> <span class="va">x</span><span class="op">)</span> <span class="op">+</span> <span class="co">## Simple Linear Regression, regressing y over x</span></span>
 <span>  <span class="fu">guides</span><span class="op">(</span>col <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>## Warning: The following aesthetics were dropped during statistical transformation: colour.
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical variable into a factor?</code></pre>
 <div class="inline-figure"><img src="bookdownproj_files/figure-html/unnamed-chunk-10-1.png" width="672"></div>
 <p>There’s also a couple of things more that you can do, but <strong>this is just a template.</strong></p>
 
@@ -266,7 +261,7 @@ Here, we load the <code>iris</code> dataset and rename it to <code>df</code></p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>RapidBook</strong>" was written by Jon Areas. It was last built on 2022-09-21.</p>
+    <p>"<strong>RapidBook</strong>" was written by Jon Areas. It was last built on 2025-03-19.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

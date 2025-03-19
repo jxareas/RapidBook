@@ -2,18 +2,16 @@
 
 ## Definition
 
-Suppose that a random sample from size $n$ is drawn from a population, and measurements $(x_{i1}, x_{i2}...x_{ik}, y_i)$ where $i = 1, ... , n$, are obtained on the n individuals.
+Suppose that a random sample of size $n$ is drawn from a population, and measurements $(x_{i1}, x_{i2}, \dots, x_{ik}, y_i)$, where $i = 1, \dots, n$, are obtained on the $n$ individuals.
 
-The random variables $x_{i1}, x_{i2}...x_{ik}$ are commonly termed as *predictor variables* (or simply, predictors), but depending on the field of application, they may also be called *independent variables*, *regressors*, *features*, *covariates* or *explanatory variables*.
+The random variables $x_{i1}, x_{i2}, \dots, x_{ik}$ are commonly termed *predictor variables* (or simply, predictors). Depending on the field of application, they may also be called *independent variables*, *regressors*, *features*, *covariates*, or *explanatory variables*.
 
-The $y_i$ variable is called the *response variable* (or simply, response). Other terms include *target variable*, *variate*, *dependent variable* or *outcome variable*.
+The $y_i$ variable is called the *response variable* (or simply, response). Other terms include *target variable*, *variate*, *dependent variable*, or *outcome variable*.
 
-The Linear Regression Model represents a relation between the response variable $y$ and the predictor variables $x_{1}, x_{2}...x_{k}$ (with the lowercase notation for simplicity) of the form:
+The Linear Regression Model represents a relation between the response variable $y$ and the predictor variables $x_1, x_2, \dots, x_k$ (with lowercase notation for simplicity), of the form:
 
-$$ 
-\begin{align}
-y = \beta_0 + \beta_1 + ... + \beta_k + \epsilon
-\end{align} 
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \dots + \beta_k x_k + \epsilon
 $$
 
 Where $\beta_0, ..., \beta_k$ are constants *regression coefficients*, and $\epsilon$ is a random error term that follows a normal distribution with mean zero ($\mu = 0$) and constant variance $\sigma^2$. That is, $\epsilon \sim Norm(\mu = 0, \sigma^2)$. Also, the random errors are assumed to be independent for different individuals of the sample.
@@ -26,7 +24,7 @@ Note that, in the general linear regression model, the response variable y has a
 
 $$ 
 \begin{align}
-\mathbb{E}(y) = \beta_0 + \beta_1 \cdot x_1 + ... + \beta_k \cdot x_k
+\mathbb{E}(y|x) = \beta_0 + \beta_1 \cdot x_1 + ... + \beta_k \cdot x_k
 \end{align} 
 $$
 
